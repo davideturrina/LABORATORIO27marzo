@@ -21,7 +21,7 @@ xlabel('X')
 ylabel('Y')
 
 % Aggiungi titolo al grafico
-title('EncDataLab_ANT_LE_50_BUCO1')
+title('EncDataLab_ANT_LE_50_BUCO 1 e 2')
 
 % Aggiungi griglia
 grid on
