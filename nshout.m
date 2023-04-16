@@ -122,11 +122,11 @@ subplot(2,1,1);
 plot(x1_norm,y1_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
-title('Segnale originale');
+title('segnale normalizzato');
 subplot(2,1,2);
 plot(x1_norm,sq_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
-title('Treno di onde quadre');
+title('segnale a impulsi D=0.5');
 
 
