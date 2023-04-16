@@ -113,21 +113,45 @@ plot(x1_norm,y1_norm,x2_norm,y2_norm)
 %fs = 15; % esempio di frequenza di campionamento di 100 Hz
 %freq = 1/(2*(1/fs));
 
-% converto il segnale in un treno di onde quadre DUTY CYCLE 0.5
-sin_norm = sin(y1_norm);
-sq_norm = square()
+% converto il segnale in un treno di onde quadre
+sq1_norm = square(y1_norm);
+sq2_norm = square(y2_norm);
 
 % plotto il segnale originale e il treno di onde quadre
-figure;
+figure(3);
 subplot(2,1,1);
-plot(x1_norm,y1_norm);
+plot(x1_norm,y1_norm,x2_norm,y2_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
 title('segnale normalizzato');
 subplot(2,1,2);
-plot(x1_norm,sq_norm);
+plot(x1_norm,sq1_norm,x2_norm,sq2_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
 title('segnale a impulsi');
+
+fs=20000 % frequenza di campionamento
+
+%Calcola la differenza di fase tra i segnali x e y usando la funzione atan2(y,x) che restituisce l'angolo in radianti:
+
+
+phase_diff = atan2(sq1_norm,x1_norm);
+d_phase = diff(phase_diff) / (1/fs);
+zero_crossings = find(sign(d_phase(1:end-1)) ~= sign(d_phase(2:end)));
+wave_counts = diff(zero_crossings) / 2;
+time = zero_crossings(1:end-1) / fs;
+plot(time, wave_counts);
+xlabel('Tempo (s)');
+ylabel('Conteggio per fronte d''onda');
+
+
+
+
+
+
+
+
+
+
 
 

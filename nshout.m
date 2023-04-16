@@ -1,35 +1,4 @@
-% Analisi
-%dati
-%•
-%In Matlab
-%–
-%Usare load() per caricare i dati
-%–
-%Per normalizzare si consiglia
-%function XN = norm1 (X)
-%M = median(X);
-%MAX = max(X);
-%MIN = min(X);
-%XN = (X
-%M) / ((MAX MIN)/2);
-% end 
 
-%Matlab
-%•
-%Acquisisco i dati tramite Matlab utilizzando un
-%file .csv
-%•
-%Vengono presentati tre sistemi di elaborazione
-%del segnale:
-%-
-%conversione A/D
-%-
-%interpolazione canali A B
-%-
-%analisi e confronto dell%output(misurando) per
-%i due encoders
-
-%clc
 %clear
 %close
 %all
@@ -95,25 +64,8 @@ figure(13);
 plot(x1_norm,y1_norm,x2_norm,y2_norm)
 
 
-% calcolo la frequenza dell'onda quadra in base alla frequenza di
-% campionamento (ho scelto fs    a caso)
- %  freq = 1/(2*(1/fs));
 
-% converto il segnale 1 in un treno di onde quadre
-%sq1 = square(2*pi*freq*(0:length(x1_norm)-1)',50);
-
-% converto il segnale 2 in un treno di onde quadre
-%sq2 = square(2*pi*freq*(0:length(x2_norm)-1)',50);
-
-%figure(14);
-%plot(sq1,y1_norm,sq2,y2_norm)
-
-
-% calcolo la frequenza dell'onda quadra in base alla frequenza di campionamento
-%fs = 15; % esempio di frequenza di campionamento di 100 Hz
-%freq = 1/(2*(1/fs));
-
-% converto il segnale in un treno di onde quadre DUTY CYCLE 0.5
+% converto il segnale in un treno di onde quadre
 sq1_norm = square(y1_norm);
 sq2_norm = square(y2_norm);
 
@@ -129,6 +81,26 @@ plot(x1_norm,sq1_norm,x2_norm,sq2_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
 title('segnale a impulsi');
+
+fs=20000 % frequenza di campionamento
+
+%Calcola la differenza di fase tra i segnali x e y usando la funzione atan2(y,x) che restituisce l'angolo in radianti
+%phase_diff = atan2(sq1_norm,x1_norm);
+%Calcolo la derivata temporale dell'angolo usando la funzione diff() e lo moltiplico per la frequenza così ottengo radianti al secondo
+%d_phase = diff(phase_diff) *fs;
+%zero_crossings = find(sign(d_phase(1:end-1)) ~= sign(d_phase(2:end)));
+%wave_counts = diff(zero_crossings) / 2;
+%time = zero_crossings(1:end-1) / fs;
+%plot(time, wave_counts);
+%xlabel('Tempo (s)');
+%ylabel('Conteggio per fronte d''onda');
+
+
+
+
+
+
+
 
 
 
