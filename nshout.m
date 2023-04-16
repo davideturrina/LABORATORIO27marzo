@@ -114,19 +114,23 @@ plot(x1_norm,y1_norm,x2_norm,y2_norm)
 %freq = 1/(2*(1/fs));
 
 % converto il segnale in un treno di onde quadre DUTY CYCLE 0.5
-sq_norm = square(y1_norm);
+sq1_norm = square(y1_norm);
+sq2_norm = square(y2_norm);
 
 % plotto il segnale originale e il treno di onde quadre
-figure;
+figure(3);
 subplot(2,1,1);
-plot(x1_norm,y1_norm);
+plot(x1_norm,y1_norm,x2_norm,y2_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
 title('segnale normalizzato');
 subplot(2,1,2);
-plot(x1_norm,sq_norm);
+plot(x1_norm,sq1_norm,x2_norm,sq2_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
 title('segnale a impulsi');
+
+
+
 
 
