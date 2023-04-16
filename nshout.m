@@ -110,11 +110,11 @@ plot(x1_norm,y1_norm,x2_norm,y2_norm)
 
 
 % calcolo la frequenza dell'onda quadra in base alla frequenza di campionamento
-fs = 100; % esempio di frequenza di campionamento di 100 Hz
-   freq = 1/(2*(1/fs));
+%fs = 15; % esempio di frequenza di campionamento di 100 Hz
+%freq = 1/(2*(1/fs));
 
 % converto il segnale in un treno di onde quadre DUTY CYCLE 0.5
-sq_norm = square(2*pi*freq*x1_norm,50);
+sq_norm = square(y1_norm);
 
 % plotto il segnale originale e il treno di onde quadre
 figure;
@@ -127,6 +127,6 @@ subplot(2,1,2);
 plot(x1_norm,sq_norm);
 xlabel('Tempo');
 ylabel('Ampiezza');
-title('segnale a impulsi D=0.5');
+title('segnale a impulsi');
 
 
